@@ -1,0 +1,39 @@
+
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <label for="username">Username:</label>
+  <input type="text" id="username" formControlName="username">
+  <div *ngIf="registrationForm.get('username')?.hasError('minlength') && registrationForm.get('username')?.touched">
+    Username mora imati barem 4 znaka.
+  </div>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" formControlName="password">
+
+  <label for="confirmPassword">Confirm Password:</label>
+  <input type="password" id="confirmPassword" formControlName="confirmPassword">
+  <div *ngIf="registrationForm.get('confirmPassword')?.hasError('required') && registrationForm.get('confirmPassword')?.touched">
+    Confirm Password je obavezan.
+  </div>
+  <div *ngIf="registrationForm.hasError('passwordMismatch') && registrationForm.get('confirmPassword')?.touched">
+    Lozinke nisu iste.
+  </div>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name">
+
+  <label for="email">Email:</label>
+  <input type="text" id="email" formControlName="email">
+  <div *ngIf="registrationForm.get('email')?.hasError('email') && registrationForm.get('email')?.touched">
+    Unesite ispravan email.
+  </div>
+
+  <button type="submit" [disabled]="!registrationForm.valid">Registriraj se</button>
+  <hr>
+  <button (click)="loginPage()">Vrati se na Login</button>
+
+  <div *ngIf="user">
+    Registracija uspješna! Dobrodošli.
+  </div>
+
+</form>

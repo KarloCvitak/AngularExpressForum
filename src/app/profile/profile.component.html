@@ -1,0 +1,31 @@
+
+
+<div *ngIf="user">
+  <h2>User data</h2>
+  <p>Username: {{ user.username }}<p>
+  <p>Email: {{ user.email }}</p>
+  <p>Name: {{ user.name }}</p>
+
+<hr>
+
+  <div class="comments-container">
+    Posts by {{user.username}}: ({{ posts.length }})
+  </div>
+  <div class="well-container" *ngFor="let komentar of posts; let i = index">
+    <ng-container *ngIf="user._id === komentar.userId">
+      <div class="comment-info">
+        by {{ komentar.userId }} at {{ komentar.timestamp }}
+      </div>
+      <hr>
+      <div class="comment">{{ komentar.comment }}</div>
+      <hr>
+
+    </ng-container>
+
+  </div>
+
+
+  <a [routerLink]="['']">BACK</a>
+
+
+</div>

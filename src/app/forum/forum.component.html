@@ -1,0 +1,58 @@
+<div class="user-container">
+  Welcome <a [routerLink]="['profile']">{{user?.name}}</a>  ({{user?.email}})
+  <button class="post-button" (click)="auth.logout()">Logout</button>
+
+</div>
+
+
+<div class="comments-container">
+  Comments: ({{ posts.length }})
+</div>
+
+<div class="well-container" *ngFor="let komentar of posts; let i = index">
+
+  <ng-container *ngIf="editingIndex !== i; else editComment">
+    <div class="comment-info">
+      by {{ findUserById(komentar.userId)?.username }} at {{ komentar.timestamp }}
+    </div>
+    <hr>
+    <div class="comment">{{ komentar.comment }}</div>
+    <hr>
+    <div class="comment-buttons">
+    <ng-container *ngIf="(user?._id === komentar.userId)" >
+      <button (click)="deletePost(i)">Delete</button>
+      <button (click)="setEdit(i)">Uredi</button>
+
+    </ng-container></div>
+  </ng-container>
+
+  <ng-template #editComment>
+    <textarea [(ngModel)]="editingComment.comment"></textarea>
+    <button class="post-button" (click)="doneEditing(i)">Save</button>
+  </ng-template>
+</div>
+
+<div class="new-comment-container">
+  <button (click)="showDiv = !showDiv">New Comment</button>
+
+  <ng-container *ngIf="showDiv">
+    <div class="new-comment-inputs">
+      <input type="text" [value]="findUserById(new.userId)?.username" placeholder="username" disabled>
+      <br>
+      <textarea [(ngModel)]="new.comment" placeholder="write a comment..."></textarea>
+    </div>
+
+    <div *ngIf="new.comment.length > 0 else disabledButton">
+      <button class="post-button"
+              [ngStyle]="{'background': 'green'}"
+              (click)="addPost()">Post</button>
+    </div>
+
+    <ng-template #disabledButton>
+      <button class="post-button"
+              [ngStyle]="{'background': 'red'}"
+              (click)="addPost()" [disabled]="true">Post</button>
+
+    </ng-template>
+  </ng-container>
+</div>

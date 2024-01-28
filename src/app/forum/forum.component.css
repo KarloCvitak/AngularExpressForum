@@ -1,0 +1,119 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+.comments-container {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.well-container {
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment-info {
+  font-size: 14px;
+  color: #888;
+}
+
+.comment {
+  margin: 10px 0;
+}
+
+.comment-buttons button {
+  margin-right: 10px;
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.comment-buttons button:hover {
+  background-color: #2980b9;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.post-button {
+  padding: 10px 20px;
+  background-color: #00dead;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.post-button[disabled] {
+  background-color: #00dead;
+  cursor: not-allowed;
+}
+
+.new-comment-container {
+  margin-top: 20px;
+}
+
+.new-comment-inputs input,
+.new-comment-inputs textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+button {
+  padding: 10px 20px;
+  color: #00dead;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[ngStyle] {
+  margin-right: 10px;
+}
+
+button[ngStyle='background: green'] {
+  background-color: #27ae60;
+}
+
+button[ngStyle='background: red'] {
+  background-color: #e74c3c;
+}
+
+.user-container {
+  background-color: #4CAF50; /* Boja pozadine */
+  color: #ffffff; /* Boja teksta */
+  padding: 15px; /* Razmak unutar elementa */
+  border-radius: 8px; /* Zaobljeni rubovi */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sjena */
+  text-align: center; /* Centriranje teksta */
+  font-size: 18px; /* Veličina teksta */
+}
+
+.user-container:hover {
+  background-color: #45a049; /* Boja pozadine na hover */
+  transition: background-color 0.3s ease; /* Animacija promjene boje pozadine */
+}
